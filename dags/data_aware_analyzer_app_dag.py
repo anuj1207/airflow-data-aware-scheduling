@@ -2,14 +2,11 @@ import datetime
 
 from airflow.decorators import dag
 from airflow import Dataset
+from data_aware_batch_ingestion_dag import batch_ingestion_dataset
+from data_aware_stream_ingestion_dag import stream_ingestion_dataset
 from airflow.providers.databricks.operators.databricks import (
    DatabricksSubmitRunDeferrableOperator,
 )
-
-
-#Suggestion: create the following datasets in a common place and import from there in here and depedency DAGs
-stream_ingestion_dataset=Dataset("stream_ingestion_dataset")
-batch_ingestion_dataset=Dataset("batch_ingestion_dataset")
 
 
 @dag(
@@ -24,5 +21,6 @@ def analyzer_app_dag_workflow():
     actual_task = DatabricksSubmitRunDeferrableOperator(
      ...
     )
+
 
 analyzer_app_dag_workflow()
