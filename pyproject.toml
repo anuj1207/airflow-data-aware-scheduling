@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "airflow-data-aware-scheduling"
+version = "0.1.0"
+description = ""
+authors = ["Anuj Saxena <anuj.633@gmail.com>"]
+readme = "README.md"
+packages = [{include = "airflow-data-aware-scheduling"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+apache-airflow = "^2.6.1"
+apache-airflow-providers-databricks = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
